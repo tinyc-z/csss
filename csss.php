@@ -184,8 +184,20 @@
     }
 
     public function min(){
-      $this->con=preg_replace("/[ 	\n\r]/", '',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/[	\n\r]/", '',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/  /", '',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/: /", ':',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/, /", ',',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/ ,/", ',',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/; /", ';',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/ ;/", ';',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/ {/", '{',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/{ /", '{',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/} /", '}',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/ }/", '}',$this->con);//去掉换行空格等
       $this->con=preg_replace("/\/\*.+?\*\//", '',$this->con);//去掉注释
+      $this->con=preg_replace("/;}/", '}',$this->con);//去掉换行空格等
+      $this->con=preg_replace("/#ffffff/", '#fff',$this->con);//去掉换行空格等
       return $this->con;
     }
   }
